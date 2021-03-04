@@ -1,0 +1,28 @@
+﻿@model IEnumerable<Product>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Products</h1>
+    <div class="row">
+
+        @foreach (var product in Model)
+        {
+            string formatedPrice = product.Price.ToString("c");
+            <div class="col-sm-3">
+                <div class="card">
+                    <img src="..." class="card-img-top" alt=@Html.DisplayFor(modelItem => product.ProductName)>
+                    <div class="card-body">
+                        <h5 class="card-title">@Html.DisplayFor(modelItem => product.ProductName)</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">@Html.DisplayFor(modelItem => formatedPrice)</h6>
+                        <p class="card-text">@Html.DisplayFor(modelItem => product.Description)</p>
+                        <a href="#" class="btn btn-success">Add To Cart</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+
+
+</div>
